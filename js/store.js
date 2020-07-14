@@ -84,7 +84,7 @@ Store.prototype.save = function (updateData, callback, id) {
 
     // If an ID was actually given, find the item and update each property
     if (id) {
-        //TODO : si ok, supprimer les anciens bouts de code
+
         //C2 : Deleting "double for" and using find instead.
         // old code :
         // for (var i = 0; i < todos.length; i++) {
@@ -166,8 +166,8 @@ Store.prototype.remove = function (id, callback) {
     var data = JSON.parse(localStorage[this._dbName]);
     var todos = data.todos;
     // var todoId;
-    //TODO : si ok, supprimer ancien code
-    //ligne 155 : simplification de la boucle for, si l'id est trouvé, suppresion.
+
+    //C2 : The splice function is directly in the find
     for (var i = 0; i < todos.length; i++) {
         if (todos[i].id == id) {
             // todoId = todos[i].id;
@@ -175,7 +175,7 @@ Store.prototype.remove = function (id, callback) {
         }
         break;
     }
-
+    // old code:
     // for (var i = 0; i < todos.length; i++) {
     //     if (todos[i].id == todoId) {
     //         todos.splice(i, 1);
