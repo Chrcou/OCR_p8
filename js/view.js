@@ -125,7 +125,7 @@ View.prototype._editItemDone = function (id, title) {
  * showEntries : shows the todos
  * removeItem : removes a todo (in the DOM)
  * updateElementCount : updates the number of completed todos
- * clearCompletedButton : hides or shows the clearCompletedButton
+ * clearCompletedButton : hides or shows the "clear completed" button
  * contentBlockVisibility : hides or shows the footer of the page
  * toggleAll : check or uncheck all the todos
  * setFilter : will put a button on the selected or unselected state
