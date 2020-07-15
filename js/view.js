@@ -1,6 +1,6 @@
 /*global qs, qsa, $on, $parent, $delegate */
 
-// (function(window) {
+(function(window) {
 //     'use strict';
 
 /**
@@ -11,6 +11,8 @@
  *     Takes a todo application event and registers the handler
  *   - render(command, parameterObject)
  *     Renders the given command with the options
+ * @constructor
+ * @param {Template} template the template of the todos list
  */
 function View(template) {
     this.template = template;
@@ -25,6 +27,7 @@ function View(template) {
     this.$footer = qs('.footer');
     this.$toggleAll = qs('.toggle-all');
     this.$newTodo = qs('.new-todo');
+
 }
 
 /**
@@ -51,8 +54,8 @@ View.prototype._clearCompletedButton = function (completedCount, visible) {
 };
 
 /**
- * Put the selected button on "selected" state
- * @param {String} currentPage The name of the selected button
+ * Toggle a button between the "selected" and "unselected" state
+ * @param {String} currentPage the target of the selected button
  */
 View.prototype._setFilter = function (currentPage) {
     qs('.filters .selected').className = '';
@@ -98,7 +101,7 @@ View.prototype._editItem = function (id, title) {
     input.value = title;
 };
 /**
- * Once the todo is edited, restores the standard display
+ * Once the todo is edited, this function restores the standard display
  * @param {Number} id 
  * @param {String} title 
  */
@@ -121,19 +124,19 @@ View.prototype._editItemDone = function (id, title) {
 
 
 /**
- * Based on the viewCmd argument, will launch one of the following functions
- * showEntries : shows the todos
- * removeItem : removes a todo (in the DOM)
- * updateElementCount : updates the number of completed todos
- * clearCompletedButton : hides or shows the "clear completed" button
- * contentBlockVisibility : hides or shows the footer of the page
- * toggleAll : check or uncheck all the todos
- * setFilter : will put a button on the selected or unselected state
- * clearNewTodo : will clear the new todo input field
- * elementComplete : shows an element as completed
- * editItem : puts the display in editing mode
- * editItemDone : exits the editing mode and update the title of the todo
- * @param {String} viewCmd the key of the function to launch in the viewCommands object.
+ * Based on the viewCmd argument, will launch one of the following functions \n
+ *  showEntries : shows the todos  \n
+ *  removeItem : removes a todo (in the DOM) \n
+ *  updateElementCount : updates the number of completed todos \n
+ *  clearCompletedButton : hides or shows the "clear completed" button \n
+ *  contentBlockVisibility : hides or shows the footer of the page \n
+ *  toggleAll : toggle all the todos between uncompleted and completed state \n
+ *  setFilter : Toggle a button between the "selected" and "unselected" state \n
+ *  clearNewTodo : will clear the new todo input field \n
+ *  elementComplete : shows an element as completed \n
+ *  editItem : sets up the display in editing mode \n
+ *  editItemDone : exits the editing mode and updates the title of the todo \n
+ * @param {String} viewCmd the key of the function to launch in the viewCommands object. \n
  * @param {*} parameter 
  */
 
@@ -179,7 +182,7 @@ View.prototype.render = function (viewCmd, parameter) {
 };
 /**
  * Based on a DOM element, will return a todo's id
- * @param {HTMLElement} element 
+ * @param {HTMLElement} element
  */
 View.prototype._itemId = function (element) {
     var li = $parent(element, 'li');
@@ -187,7 +190,7 @@ View.prototype._itemId = function (element) {
 };
 /**
  * When the edition of a todo is finished, this function will handles the exiting of edition mode
- * @param { * } handler 
+ * @param { * } handler What to do with the id and the title of a todo
  */
 View.prototype._bindItemEditDone = function (handler) {
     var self = this;
@@ -274,4 +277,4 @@ View.prototype.bind = function (event, handler) {
 // Export to window
 window.app = window.app || {};
 window.app.View = View;
-// }(window));
+}(window));

@@ -1,5 +1,5 @@
 /*jshint eqeqeq:false */
-// (function(window) {
+(function(window) {
 // 'use strict';
 
 /**
@@ -200,4 +200,4 @@ Store.prototype.drop = function (callback) {
 // Export to window
 window.app = window.app || {};
 window.app.Store = Store;
-// }) (window);
+}) (window);
