@@ -1,4 +1,4 @@
-// (function(window) {
+(function(window) {
 'use strict';
 
 /**
@@ -117,4 +117,4 @@ Model.prototype.getCount = function (callback) {
 // Export to window
 window.app = window.app || {};
 window.app.Model = Model;
-// })(window);
+})(window);

@@ -2,7 +2,7 @@ label[for='toggle-all'] {
   display: block;
 }
 .toggle-all {
-  width: 10%;
+  width: 55px;
   height: 44px;
   border: none;
   opacity: 0;

@@ -1,5 +1,5 @@
 /*global NodeList */
-// (function(window) {
+(function(window) {
 'use strict';
 /**
  * Gets one element by CSS selector
@@ -77,4 +77,4 @@ window.$parent = function (element, tagName) {
 // Allow for looping on nodes by chaining:
 // qsa('.foo').forEach(function () {})
 NodeList.prototype.forEach = Array.prototype.forEach;
-// })(window);
+})(window);
