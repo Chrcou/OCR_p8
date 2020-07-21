@@ -85,28 +85,18 @@
         // If an ID was actually given, find the item and update each property
         if (id) {
 
-            //C2 : Deleting "double for" and using find instead.
-            // old code :
-            // for (var i = 0; i < todos.length; i++) {
-            //     if (todos[i].id === id) {
-            //         for (var key in updateData) {
-            //             todos[i][key] = updateData[key];
-            //         }
-            //         break;
-            //     }
-            // }
-            todos.find(
-                (todo) => {
-                    if (todo.id === id) {
-                        for (var key in updateData) {
-                            todo[key] = updateData[key];
-                        }
 
+
+            //C2 : no optimisation on this function, in this case, find is slower that for+break. See https://jsperf.com/find-vs-for-break
+
+            for (var i = 0; i < todos.length; i++) {
+                if (todos[i].id === id) {
+                    for (var key in updateData) {
+                        todos[i][key] = updateData[key];
                     }
+                    break;
                 }
-
-
-            );
+            }
 
             localStorage[this._dbName] = JSON.stringify(data);
             callback.call(this, todos);
@@ -167,7 +157,7 @@
         var todos = data.todos;
         // var todoId;
 
-        //C2 : The splice function is directly in the find
+        //C2 : The splice function is directly in the "for"
         for (var i = 0; i < todos.length; i++) {
             if (todos[i].id == id) {
                 todos.splice(i, 1);

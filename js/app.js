@@ -1,5 +1,5 @@
 /*global app, $on */
-(function () {
+(function() {
     'use strict';
 
     /**
@@ -17,11 +17,11 @@
     }
 
     var todo = new Todo('todos-vanillajs');
-
-    /**
-     * Shortcut to controller.setView with document.location.hash as argument.
-     * This function will load and initialise the view
-     */
+    console.log(todo)
+        /**
+         * Shortcut to controller.setView with document.location.hash as argument.
+         * This function will load and initialise the view
+         */
     function setView() {
         todo.controller.setView(document.location.hash);
     }
