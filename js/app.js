@@ -17,11 +17,11 @@
     }
 
     var todo = new Todo('todos-vanillajs');
-    console.log(todo)
-        /**
-         * Shortcut to controller.setView with document.location.hash as argument.
-         * This function will load and initialise the view
-         */
+
+    /**
+     * Shortcut to controller.setView with document.location.hash as argument.
+     * This function will load and initialise the view
+     */
     function setView() {
         todo.controller.setView(document.location.hash);
     }

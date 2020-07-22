@@ -87,9 +87,11 @@
 
 
 
-            //C2 : no optimisation on this function, in this case, find is slower that for+break. See https://jsperf.com/find-vs-for-break
+            //C2 : iMax added to accelerate the "for".
+            //This variable avoid to find to length of "todos" at each iteration
+            // See https://jsperf.com/find-vs-for-break/7
 
-            for (var i = 0; i < todos.length; i++) {
+            for (var i = 0, iMax = todos.length; i < iMax; i++) {
                 if (todos[i].id === id) {
                     for (var key in updateData) {
                         todos[i][key] = updateData[key];
@@ -102,7 +104,7 @@
             callback.call(this, todos);
         } else {
             // Generates an ID
-            // The generation fo the id is now in the "else" to avoid creating useless id.
+            // The generation oF the id is now in the "else" to avoid creating useless id.
             //A getNewID function is now used to generating a todo.
             var newId = this.getNewID(data.todos);
 
@@ -130,11 +132,14 @@
         //     newId += charset.charAt(Math.floor(Math.random() * charset.length));
         // }
         let newId = Math.floor(Math.random() * 999999);
-        const searchedID = data.find(
-            (t) => {
-                return t.id === newId;
+
+        let searchedID;
+        for (var i = 0, iMax = data.length; i < iMax; i++) {
+            if (data[i].id === newId) {
+                searchedID = newId;
+                break;
             }
-        );
+        }
         if (typeof searchedID === "undefined") {
             return newId;
 
@@ -155,15 +160,19 @@
     Store.prototype.remove = function(id, callback) {
         var data = JSON.parse(localStorage[this._dbName]);
         var todos = data.todos;
+        console.log(id);
         // var todoId;
 
-        //C2 : The splice function is directly in the "for"
-        for (var i = 0; i < todos.length; i++) {
+        //C2 : The splice function is directly in the "for", iMax added to the "for"
+        //https://jsperf.com/for-vs-find-simple/1
+        for (let i = 0, iMax = todos.length; i < iMax; i++) {
             if (todos[i].id == id) {
                 todos.splice(i, 1);
+                break;
             }
-            break;
+
         }
+
         // old code:
         // for (var i = 0; i < todos.length; i++) {
         //     if (todos[i].id == id) {
