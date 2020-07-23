@@ -105,7 +105,7 @@
         } else {
             // Generates an ID
             // The generation oF the id is now in the "else" to avoid creating useless id.
-            //A getNewID function is now used to generating a todo.
+            // C2 : A getNewID function is now used to generating a todo.
             var newId = this.getNewID(data.todos);
 
             // Assign an ID
