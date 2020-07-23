@@ -104,7 +104,7 @@
             callback.call(this, todos);
         } else {
             // Generates an ID
-            // The generation oF the id is now in the "else" to avoid creating useless id.
+            // The generation of the id is now in the "else" to avoid creating useless id.
             // C2 : A getNewID function is now used to generating a todo.
             var newId = this.getNewID(data.todos);
 
@@ -123,11 +123,12 @@
      * with the todos list, if the purposed ID already exists, another ID will 
      * be emited.
      *
-     * @param {Array} data An array of already created object. All object must contained an id like this : {...., id: , ...}.
+     * @param {Array} data An array of already created objects. All object must contained an id like this : {...., id: , ...}.
      */
     Store.prototype.getNewID = function(data) {
         //C2 replacing this "for" by a simple multiplication
         // let newId = "";
+        // var charset = "0123456789";
         // for (var i = 0; i < 6; i++) {
         //     newId += charset.charAt(Math.floor(Math.random() * charset.length));
         // }

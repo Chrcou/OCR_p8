@@ -229,8 +229,8 @@
     };
     /**
      * Add a listener to an event
-     * @param {} event 
-     * @param {Function} handler   What to do with the event
+     * @param {String} event the event name
+     * @param {Function} handler  What to do with the event
      */
     View.prototype.bind = function(event, handler) {
         var self = this;

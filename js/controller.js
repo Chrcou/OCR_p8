@@ -95,6 +95,7 @@
     /**
      * An event to fire whenever you want to add an item. Simply pass in the event
      * object and it'll handle the DOM insertion and saving of the new item.
+     * @param {String}title the text of the todo
      */
     //C2 : Replacing adddItem by addItem 
     Controller.prototype.addItem = function(title) {
@@ -110,8 +111,9 @@
         });
     };
 
-    /*
+    /**
      * Triggers the item editing mode.
+     * @param {*} id The id of the todo
      */
     Controller.prototype.editItem = function(id) {
         var self = this;
@@ -120,8 +122,10 @@
         });
     };
 
-    /*
+    /**
      * Finishes the item editing mode successfully.
+     * @param {*} id the id of the todo
+     * @param {*} title the modified text of the todo
      */
     Controller.prototype.editItemSave = function(id, title) {
         var self = this;
@@ -144,8 +148,9 @@
         }
     };
 
-    /*
+    /**
      * Cancels the item editing mode.
+     * @param {*} id the id of the todo
      */
     Controller.prototype.editItemCancel = function(id) {
         var self = this;
@@ -222,6 +227,7 @@
     /**
      * Will toggle ALL checkboxes' on/off state and completeness of models.
      * Just pass in the event object.
+     * @param {boolean} completed the state of the todo
      */
     Controller.prototype.toggleAll = function(completed) {
         var self = this;
@@ -278,6 +284,7 @@
 
     /**
      * Simply updates the filter nav's selected states
+     * @param {String} currentPage the name of the current page
      */
     Controller.prototype._updateFilterState = function(currentPage) {
         // Store a reference to the active route, allowing us to re-filter todo
