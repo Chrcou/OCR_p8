@@ -227,7 +227,7 @@ describe('controller', function() {
             setUpModel([]);
         });
         it('should add a new todo to the model', function() {
-            //TODO : Writed by C2
+            //Writed by C2
             view.trigger('newTodo', title);
             expect(model.create).toHaveBeenCalledWith(title, jasmine.any(Function));
         });
