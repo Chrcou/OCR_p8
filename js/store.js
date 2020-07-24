@@ -161,7 +161,6 @@
     Store.prototype.remove = function(id, callback) {
         var data = JSON.parse(localStorage[this._dbName]);
         var todos = data.todos;
-        console.log(id);
         // var todoId;
 
         //C2 : The splice function is directly in the "for", iMax added to the "for"
