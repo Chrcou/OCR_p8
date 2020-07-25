@@ -14,8 +14,8 @@
     /**
      * Creates a new todo model
      *
-     * @param {string} [title] The title of the task
-     * @param {function} [callback] The callback to fire after the model is created
+     * @param {string} title The title of the task
+     * @param {function} callback The callback to fire after the model is created
      */
     Model.prototype.create = function(title, callback) {
         title = title || '';

@@ -49,7 +49,7 @@
     /**
      * Loads and initialises the view
      *
-     * @param {string} '' | 'active' | 'completed'
+     * @param {string} locationHash Can be : '' or 'active' or 'completed'
      */
     Controller.prototype.setView = function(locationHash) {
         var route = locationHash.split('/')[1];

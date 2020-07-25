@@ -191,7 +191,7 @@
     };
     /**
      * When the edition of a todo is finished, this function will handle the exiting of edition mode
-     * @param { * } handler What to do with the id and the title of a todo
+     * @param { Function } handler What to do with the id and the title of a todo
      */
     View.prototype._bindItemEditDone = function(handler) {
         var self = this;
