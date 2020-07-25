@@ -98,6 +98,7 @@ describe('controller', function() {
         });
 
         it('should show active entries', function() {
+	//test Wtried by C2
             console.log("testing active");
             var todo = { title: 'my todo' };
             setUpModel([todo]);
@@ -109,6 +110,7 @@ describe('controller', function() {
         });
 
         it('should show completed entries', function() {
+	//test Wtried by C2
 
             var todo = { title: 'my todo' };
             setUpModel([todo]);
