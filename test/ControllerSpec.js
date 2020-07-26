@@ -72,7 +72,7 @@ describe('controller', function() {
         }
 
         setUpModel(data);
-        subject.showAll();
+        subject.setView('');
         expect(view.render).toHaveBeenCalledWith('showEntries', data);
 
     });
@@ -98,7 +98,7 @@ describe('controller', function() {
         });
 
         it('should show active entries', function() {
-	//test Wtried by C2
+	//test Writed by C2
             console.log("testing active");
             var todo = { title: 'my todo' };
             setUpModel([todo]);
@@ -110,7 +110,7 @@ describe('controller', function() {
         });
 
         it('should show completed entries', function() {
-	//test Wtried by C2
+	//test Writed by C2
 
             var todo = { title: 'my todo' };
             setUpModel([todo]);
@@ -189,13 +189,17 @@ describe('controller', function() {
             var todo1 = {
                 id: 42,
                 title: "t42",
+                completed: true
+            };
+
+            var todo2 = {
+                id: 43,
+                title: "t43",
                 completed: false
             };
 
-            setUpModel([todo1]);
-            console.log(subject);
+            setUpModel([todo1,todo2]);
             subject._activeRoute = "all";
-            console.log("start testing toogleAll");
             subject.toggleAll(completed);
 
 
@@ -206,7 +210,7 @@ describe('controller', function() {
             // Writed by C2
 
             expect(model.update).toHaveBeenCalledWith(42, Object({ completed: true }), jasmine.any(Function));
-
+            expect(model.update).toHaveBeenCalledWith(43, Object({ completed: true }), jasmine.any(Function));
 
         });
 
@@ -215,6 +219,10 @@ describe('controller', function() {
 
             expect(view.render).toHaveBeenCalledWith('elementComplete', {
                 id: 42,
+                completed: true
+            });
+            expect(view.render).toHaveBeenCalledWith('elementComplete', {
+                id: 43,
                 completed: true
             });
 
